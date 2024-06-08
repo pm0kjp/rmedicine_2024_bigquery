@@ -1,0 +1,6 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+
+embed-resources: true

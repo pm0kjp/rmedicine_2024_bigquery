@@ -1,0 +1,17 @@
+title: CHOPR
+author: CHOPR
+version: 1.0.0
+quarto-required: ">=1.2.0"
+execute:
+  echo: true
+contributes:
+  formats:
+    revealjs:
+      theme: [custom.scss]
+      logo: chopr.png
+      template-partials:
+        - title-slide.html      
+      scrollable: true      
+      title-slide-attributes:
+        data-background-color: "#025486"
+

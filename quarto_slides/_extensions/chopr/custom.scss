@@ -1,0 +1,71 @@
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: "Arial", "Verdana", "Tahoma",
+  "Open Sans" !default;
+  
+// headings  
+$presentation-heading-font: "Arial", "Verdana", "Tahoma",
+  "Open Sans" !default;
+$presentation-heading-color: #025486 !default;
+$h1-font-size: 1.6em !default;
+$h2-font-size: 1.3em !default;
+$h3-font-size: 1.15em !default;
+
+// general  
+$body-bg: #fff;
+$body-color: #000000;
+$link-color: #025486;
+$text-bold-color: #025486;
+$code-highlight-color: #f6bcd3;
+$primary: #025486;
+$secondary: #36BFED;
+$white: #FFFFFF;
+$black: #000000;
+$navy: #025486;
+$blue: #36BFED;
+$pink: #D01C65;
+$pink_light: #f6bcd3;
+$beige: #F2EFEC;
+$beige_dark: #8A735F;
+
+/*-- scss:rules --*/
+
+.slide-logo {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  right: 10px !important;
+  max-height: 15% !important;
+  height: 100% !important;
+  width: auto !important;
+  color: $body-color !important;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 10px !important;
+  right: 10px !important;
+  top: unset !important;
+  color: $body-color !important;
+}
+
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+}
+
+.one-third {
+  max-width: 33% !important;
+  height: auto !important;
+}
+.two-thirds {
+  max-width: 66% !important;
+  height: auto !important;
+}
+
+.half {
+  max-width: 50% !important;
+  height: auto !important;
+
+}
