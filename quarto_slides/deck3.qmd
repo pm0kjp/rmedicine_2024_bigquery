@@ -23,6 +23,44 @@ This slide deck was built in Quarto!
 library(countdown)
 ```
 
+# Progress So Far {.smaller}
+
+So far, you've:
+
+* Signed up for GCP
+* Created a project
+* Added BigQuery to that project
+* Looked at public data in another project
+* Used that data to create a query and a table in your project
+
+# What's Left?
+
+* Exporting your table for use elsewhere
+* Connecting directly to BigQuery from RStudio
+* (Maybe) Vertex AI Workbench
+
+# Let's Export! {.smaller}
+
+![](media/export_options.png){.bordered}
+::: notes
+
+One way you can work with the data that you've groomed and selected from BigQuery is by exporting it to use elsewhere.  Depending on the size of the data and how often the data changes, this might be a great use case, and very convenient.  Let's go over that briefly.
+
+Now, you might think that the Export button as you're looking at a table would be a great way to get data out of GCP, but this export button is actually for exporting to other Google products, like Looker Studio or Google Cloud Storage.  If that's what you want, fantastic, but let's assume you want to take a .csv and just run with that data somewhere else.  What should you do?
+
+To export a .csv, you need to have query results, and you can save those in various formats.  So we have a couple of options.
+
+:::
+
+# Getting Query Results to Save {.smaller}
+
+Since you've saved the query you used to create this table, you can re-run that query.
+
+Or, since you've created a table that contains all the data you want, you run a "give me everything" query:
+
+SELECT * FROM [table_name]
+
+
 # R vs RStudio {.smaller}
 
 Quick reminder: R is a language, that can be run in many settings:
@@ -30,10 +68,10 @@ Quick reminder: R is a language, that can be run in many settings:
 -   from the command line
 -   in an automation (like a cron job)
 -   from the R IDE (very bare bones)
--   from an IDE like RStudio (much more robust)
+-   from the RStudio IDE
 -   within a notebook like a Jupyter notebook
 
-RStudio is a fully featured IDE that runs on Linux, Windows, and Mac.
+RStudio is a fully featured IDE that runs on Linux, Windows, and Mac.  It's much more heavy weight than just the language.
 
 # Working with RStudio IDE {.smaller}
 
@@ -50,3 +88,49 @@ You might want to create a Posit.cloud account for this identity, too, while you
 ::: notes
 OK, so we'll be working now in RStudio. If you use RStudio from your local computer, you can open that. Or, if you prefer working in Posit.cloud, you can open that. That's what I'll be doing today. In fact, it might be useful to open a Posit.cloud account if you haven't already. Just go to posit.cloud and hit sign up. I'll give everyone a minute to fire up their RStudio.
 :::
+
+# bigrquery
+
+There are several ways to connect to BigQuery but the way I'm going to show you uses a library called `bigrquery`.
+
+# Vertex AI Workbench
+
+![](media/vertex_ai_workbench.png){.bordered}![](media/enable_notebooks_api.png){.bordered}
+::: note
+In the burger menu, select Vertex AI, then Workbench.  Enable the api.
+
+:::
+
+
+# Create a Workbench Instance
+
+![](media/create_new_instance.png){.bordered}
+::: notes
+You'll need to create a workbench instance.  This is going to use compute resources that cost money, so it's important to remember to shut down this instance when you're not using it.
+:::
+# Setting up R kernel {.smaller}
+
+In a new Terminal in your Jupyter instance, enter the following:
+```
+conda create -n r
+conda activate r
+conda install -c r r-essentials
+```
+Answer "y" when prompted.
+
+Once all this is installed, issue this command:
+```
+conda activate r
+```
+Answer "y" when prompted.
+
+::: notes
+
+:::
+
+# Start Notebook with R kernel
+
+File > New > Notebook
+
+Select "R" as the kernel
+

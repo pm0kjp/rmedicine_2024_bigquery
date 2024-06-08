@@ -40,7 +40,7 @@ Hi everyone, welcome to today's course on First Steps with Google BigQuery. A fe
 Additionally, I suggest that you use a personal Google Cloud Platform account, **even if you already have a work account**. If you're using a work GCP account, you might not have all of the permissions granted to you that you will need to complete today's tasks. We will take some time out at the beginning of this workshop to allow you to set up a new personal Google Cloud Platform account, if needed.
 :::
 
-# BigQuery, According to Google
+# BigQuery, According to Google {.smaller}
 
 "BigQuery is a fully managed enterprise data warehouse that helps you manage and analyze your data with built-in features like machine learning, geospatial analysis, and business intelligence. BigQuery's serverless architecture lets you use SQL queries to answer your organization's biggest questions with zero infrastructure management."
 
@@ -90,9 +90,9 @@ Please grab these links and use them!
 
 Slide shows: 
 
-* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck1.html>
-* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck2.html>
-* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck3.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/index.html>
+
+(Will give you links to all three hours of slide decks)
 
 GitHub repository: <https://github.com/pm0kjp/rmedicine_2024_bigquery/>
 
@@ -110,7 +110,7 @@ Finally, feedback is incredibly important to me, because it's how I can improve 
 
 **Hour 1**: GCP and BigQuery Orientation
 
-**Hour 2**: BigQuery Data, SQL in BigQuery, R Tools 
+**Hour 2**: BigQuery Data, SQL in BigQuery, Gemini 
 
 **Hour 3**: R/RStudio and BigQuery Integration
 
@@ -478,11 +478,11 @@ OK, so now you have a data warehouse, but you need data. We're going to use some
 Look for Area Deprivation Index (ADI) by searching for it or looking in the healthcare category.
 
 ::: {.columns .v-center-container}
-::: {.column width="50%"}
+::: {.column width="40%"}
 ![](media/healthcare_data_filter.png){.bordered}
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 ![](media/adi_dataset.png){.bordered} ![](media/area_deprivation_view_dataset.png){.bordered}
 :::
 :::
@@ -570,6 +570,8 @@ In BigQuery, you can expand a project to show its included datasets, and expand 
 
 # Break {.smaller}
 
+::: {.columns .v-center-container}
+::: {.column width="80%"}
 Let's take a break.  So far you:
 
 * Created a GCP account
@@ -582,6 +584,8 @@ During break, you can either relax, or, if you want:
 * Experiment with interrogating Gemini
 * Look around at other public datasets
 * Try some of the other "Add Data" methods to add your own (non-regulated, not-PHI, etc.) data to your project 
+:::
+:::
 
 ```{r echo = FALSE}
 library(countdown)

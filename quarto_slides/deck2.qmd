@@ -192,7 +192,8 @@ You'll also see red warnings that your query is invalid. That's expected, becaus
 ::: {.columns .v-center-container}
 ::: {.column width="60%"}
 -   You might have to adjust your pane widths to see all the buttons you need.
--   Please click on the table in the CDC data (`sdoh_cdc_wonder_natality`) called `county_natality`. \* Click on the "query" button and choose "In split tab".
+-   Please click on the table in the CDC data (`sdoh_cdc_wonder_natality`) called `county_natality`. 
+-   Click on the "query" button and choose "In split tab".
 -   Add one or more fields from the schema of the table between the words "SELECT" and "FROM" in the query.
 -   When you get a green check mark showing that your query is valid, click the blue "Run" button above your query.
 :::
@@ -279,7 +280,7 @@ So let's try this version of the query. It works, and we get the same info.
 Now I'd like to give you a couple of minutes to look at the links that appear at the bottom of an AI-generated query. I'm going to put in a new question, and have you do the same thing. Either the same question as me or a different one. Once you see the query appear, and then at the bottom I can see three things that I want you to click on and investigate. Edit Table Sources, Query Summary, and Use query with caution. I'll give you 5 minutes to take a quick look at these.
 :::
 
-# JOINs in SQL
+# JOINs in SQL {.smaller}
 
 I asked you before to find three things, and now we'll use them in a JOIN in SQL.
 
@@ -376,7 +377,7 @@ And if we wanted to take a pertinent county-level measure of ADI, what would you
 So, let's think about what kind of join we want between our two tables. If we're trying to make a connection, maybe show some statistical relationship, between ADI and birth characteristics, we need the rows from each table that line up, that match. We're interested only in the counties that have both ADI info and Birth info. What is that kind of join called? Right, an inner join, or just JOIN.
 :::
 
-# Syntax of a JOIN {.smaller}
+# Syntax of a JOIN 
 
 The basic syntax of a join is:
 
@@ -428,7 +429,13 @@ Let's look at the results of my query. Why do we have multiples of some counties
 
 Gemini gets us the start of a query, but it won't quite work. But it does give you a nice look at aliasing!
 
-![](media/gemini_year_match.png){.bordered} ::: notes So, I start by asking Gemini to help. This is how I phrased the question. I'd like for you to click on the Gemini pencil icon and ask a question similar to mine, or you can put it in your own words. :::
+![](media/gemini_year_match.png){.bordered .two-thirds} 
+
+::: notes 
+
+So, I start by asking Gemini to help. This is how I phrased the question. I'd like for you to click on the Gemini pencil icon and ask a question similar to mine, or you can put it in your own words. 
+
+:::
 
 # Riffing on Gemini
 
@@ -445,8 +452,9 @@ SELECT
 ```
 
 Error!
-
-`No matching signature for operator = for argument types: DATE, INT64. Supported signature: ANY = ANY at [7:10]`
+```
+No matching signature for operator = for argument types: DATE, INT64. Supported signature: ANY = ANY at [7:10]
+```
 
 ::: notes
 So, this query won't work. I don't know if you got something similar or identical to what I got, but I encourage you to try running your code. I'll take what I got here and run it myself in my BigQuery in a screen share. So I'll copy this from the slide and I'll paste it into BigQuery.
@@ -476,7 +484,7 @@ Include what you're trying to do and "in BigQuery."
 
 In our case, EXTRACT seems likely to work.
 
-# Tweaking What Gemini Gave Us {.smaller}
+# Tweaking What Gemini Gave Us 
 
 ```         
 SELECT
@@ -496,7 +504,7 @@ OK, so let's try changing the aliases to make them a bit more useful. I wasn't h
 OK, so first I'm going to rename my first table as cdc, instead of t1, and make sure all my t1 references become cdc. Then I'll change t2 to adi. I'll change cdc.Year to EXTRACT(YEAR FROM cdc.YEAR), and I like to change the whitespace and indentation. Let me run that and see if that works. OK, I'm also going to copy paste this into chat so you can grab it from there.
 :::
 
-# But let's pop in some "sanity checks"
+# Sanity Checks 
 
 ```         
 SELECT
@@ -517,7 +525,7 @@ ON cdc.County_of_Residence_FIPS = adi.county_fips_code AND
 It's helpful to add back the county name and year, just to make sure that our matching is working. Let's do that, just for comfort. I'mm going to add in the county name and the year from both data sources, and that way I can be super-duper sure that the join is working properly.
 :::
 
-# Grouping and Aggregation
+# Grouping and Aggregation {.smaller}
 
 One last thing -- we now are matching on year, but what if we have data on 2018, 2019, and 2020 for a given county, in both tables? We'll match that data up properly, but some counties might be over-represented in our analysis.
 
@@ -556,6 +564,8 @@ Create a dataset with a name that describes your overall data efforts. Since I'm
 
 # Create table
 
+![](media/create_table.png){.bordered}
+
 ::: notes
 And I give my table a useful name that describes the data there.
 
@@ -564,8 +574,20 @@ For example, I'm calling this "adi_birth_weight_by_county".
 
 # Saving Your Work: Queries
 
-![](media/save_query.png){.bordered} ::: notes Building up a query is often iterative and difficult. You might want to save your queries to keep working on them later, tweaking them to get the best results or asking for help from someone who knows more SQL and can explain what's going wrong. You can copy/paste your SQL into a document somewhere, sure, but you can also save them within BigQuery. In the query window, there's a Save button. Click "Save query" and give it a good English language description. You can write a sentence here, it doesn't have to be pithy like a table name should be. Choose a region that's close to you, geographically. :::
+![](media/save_query.png){.bordered} 
+
+::: notes 
+
+Building up a query is often iterative and difficult. You might want to save your queries to keep working on them later, tweaking them to get the best results or asking for help from someone who knows more SQL and can explain what's going wrong. You can copy/paste your SQL into a document somewhere, sure, but you can also save them within BigQuery. In the query window, there's a Save button. Click "Save query" and give it a good English language description. You can write a sentence here, it doesn't have to be pithy like a table name should be. Choose a region that's close to you, geographically. 
+
+:::
 
 # Look at Your Resources
 
-![](media/lots_of_resources.png){.bordered} ::: notes Now look back in your Explorer and expand your project name and your dataset name and the Queries. Hopefully you see something like what's on your screen -- you have some saved assets in your project now, including a table of data and a query. If you don't see this, you might have to toggle the "Show Starred Only" button and then put a star on your project, to make sure the resources in your project show up when "starred only" is selected. :::
+![](media/lots_of_resources.png){.bordered} 
+
+::: notes 
+
+Now look back in your Explorer and expand your project name and your dataset name and the Queries. Hopefully you see something like what's on your screen -- you have some saved assets in your project now, including a table of data and a query. If you don't see this, you might have to toggle the "Show Starred Only" button and then put a star on your project, to make sure the resources in your project show up when "starred only" is selected. 
+
+:::
