@@ -1,16 +1,22 @@
 ---
-title: "R and BigQuery First Steps"
+title: "Getting Started: R and Google BigQuery"
+format: 
+  revealjs:
+    theme: [serif, custom.scss]
+    scrollable: true
+    footer: Joy Payton, Children's Hospital of Philadelphia
+    css: styles.css
+editor: visual
 ---
 
-## R and BigQuery First Steps
+# Getting Started: R and Google BigQuery {.smaller}
 
-Presented by: Joy Payton, Children's Hospital of Philadelphia (CHOP) R User Group
+Slide shows: 
 
-Slide decks (click on any title):
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck1.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck2.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck3.html>
 
-* [Missing Values in R](https://rosemhartman.quarto.pub/r102/quarto_slides/missing_values_in_r.html#/title-slide), 2024-03-04
-* [Summary Statistics in R](https://rosemhartman.quarto.pub/r102/quarto_slides/summary_stats_in_r.html#/title-slide), 2024-04-08 
-* [Reshaping Data with tidyr](https://rosemhartman.quarto.pub/r102/quarto_slides/reshaping_data_with_tidyr.html#/title-slide), 2024-05-06
-* [Data Types and Visualizations](https://rosemhartman.quarto.pub/r102/quarto_slides/data_types_and_viz.html#/title-slide), 2024-06-03
+GitHub repository: <https://github.com/pm0kjp/rmedicine_2024_bigquery/>
 
-Note that we will likely update slides for each session up until the presentation date! 
+

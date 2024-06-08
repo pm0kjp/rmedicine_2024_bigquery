@@ -84,11 +84,17 @@ So I haven't properly introduced myself yet, so let's do that! My name is Joy Pa
 Finally, I like to say that I know a little about a lot, and I teach a broad range of skills. I am more of a generalist than a specialist, so I often teach in rooms to people who know more than me.  If you know a better way to do something than what I share, please let us know! Drop your tips and tricks into chat. I try not to have a thin skin around stuff like that.
 :::
 
-# Materials for Today
+# Materials for Today {.smaller}
 
 Please grab these links and use them!
 
-This slide show: (once you open the slide show you can use 's' to open speaker notes) GitHub repository:
+Slide shows: 
+
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck1.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck2.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck3.html>
+
+GitHub repository: <https://github.com/pm0kjp/rmedicine_2024_bigquery/>
 
 ::: notes
 Importantly, in a live class not everyone moves at the same pace so I strongly encourage you to grab these links and use them. If you want to skip ahead or hang back today, that's completely fine, and I want you to have access to the slides so you can do that.
