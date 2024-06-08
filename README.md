@@ -22,3 +22,31 @@ In this workshop, we'll cover the following topics:
   - [Births Data Summary from the Centers for Disease Control](https://console.cloud.google.com/marketplace/product/center-disease-control/wonder-births?project=principal-rhino-422713-m3)
   - [Area Deprivation Index (ADI), provided by BroadStreet](https://console.cloud.google.com/marketplace/product/broadstreet-public-data/adi?project=principal-rhino-422713-m3)
 * We'll use BigQuery to do some data selection 
+
+
+## Queries we issue
+
+
+SELECT
+  cdc.Ave_Birth_Weight_gms,
+  adi.area_deprivation_index_percent
+FROM
+  `bigquery-public-data.sdoh_cdc_wonder_natality.county_natality` AS cdc 
+  INNER JOIN `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` AS adi
+ON cdc.County_of_Residence_FIPS = adi.county_fips_code AND 
+   EXTRACT(YEAR FROM cdc.Year) = adi.year
+   
+SELECT
+  cdc.Ave_Birth_Weight_gms,
+  adi.area_deprivation_index_percent,
+  cdc.County_of_Residence,
+  adi.county_name,
+  cdc.Year,
+  adi.year
+FROM
+  `bigquery-public-data.sdoh_cdc_wonder_natality.county_natality` AS cdc 
+  INNER JOIN `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` AS adi
+ON cdc.County_of_Residence_FIPS = adi.county_fips_code AND 
+   EXTRACT(YEAR FROM cdc.Year) = adi.year
+   
+   

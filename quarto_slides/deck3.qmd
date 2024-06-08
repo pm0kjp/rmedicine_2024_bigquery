@@ -1,0 +1,52 @@
+---
+title: "Getting Started: R and BigQuery"
+format: 
+  revealjs:
+    theme: [serif, custom.scss]
+    scrollable: true
+    footer: Joy Payton, Children's Hospital of Philadelphia
+    css: styles.css
+editor: visual
+---
+
+------------------------------------------------------------------------
+
+This slide deck was built in Quarto!
+
+-   Use keyboard arrow keys to
+    -   advance ( → ) and
+    -   go back ( ← )
+-   Type "s" to see speaker notes
+-   Type "?" to see other keyboard shortcuts
+
+```{r echo = FALSE}
+library(countdown)
+```
+
+# R vs RStudio {.smaller}
+
+Quick reminder: R is a language, that can be run in many settings:
+
+-   from the command line
+-   in an automation (like a cron job)
+-   from the R IDE (very bare bones)
+-   from an IDE like RStudio (much more robust)
+-   within a notebook like a Jupyter notebook
+
+RStudio is a fully featured IDE that runs on Linux, Windows, and Mac.
+
+# Working with RStudio IDE {.smaller}
+
+Many of us love RStudio. You can spin up an RStudio server in GCP... but you don't have to, and it might mean spending money when you don't need to.
+
+You can use your **normal** RStudio (on your computer or in Posit.cloud) to work with BigQuery.
+
+# Using non-GCP RStudio
+
+Please open whatever RStudio you tyically use, whether that's on your computer or in Posit.cloud. I'm going to open my Posit.cloud account.
+
+You might want to create a Posit.cloud account for this identity, too, while you're at it.
+
+::: notes
+OK, so we'll be working now in RStudio. If you use RStudio from your local computer, you can open that. Or, if you prefer working in Posit.cloud, you can open that. That's what I'll be doing today. In fact, it might be useful to open a Posit.cloud account if you haven't already. Just go to posit.cloud and hit sign up. I'll give everyone a minute to fire up their RStudio.
+:::

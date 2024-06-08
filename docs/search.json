@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "quarto_slides/deck1.html#agreeing-to-terms",
+    "href": "quarto_slides/deck1.html#agreeing-to-terms",
+    "title": "Getting Started: R and Google BigQuery",
+    "section": "Agreeing to terms",
+    "text": "Agreeing to terms\n\n\nFirst, agree to terms (the easy part).\nCheck the box and click “Agree…”\n\n\n\n\n\nTo agree to the GCP general terms, you just click the checkbox."
+  },
+  {
+    "objectID": "quarto_slides/deck1.html#free-trial",
+    "href": "quarto_slides/deck1.html#free-trial",
+    "title": "Getting Started: R and Google BigQuery",
+    "section": "Free Trial",
+    "text": "Free Trial\nNow, start the free trial: a bit more complex.\n\n\n\n\n−+\n05:00\n\n\n\n\nAfter you click to agree to terms, you can activate your free trial.\nYou will have to enter a credit card number.\nGoogle will not charge you unless you decide to change your account status to a “paid” account. If you don’t add a credit card, it’s possible that you may be able to use a “sandbox” account – I’m not certain. However, it’s highly likely that you won’t be able to do everything we’re doing today in the course.\nThey’ll then ask you a few questions about how you plan to use GCP, and you can answer those however you want.\nWe’ll wait here for around 5 minutes for everyone to catch up, and I’m available in the chat for questions."
+  }
+]
