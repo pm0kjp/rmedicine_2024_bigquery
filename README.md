@@ -79,3 +79,6 @@ conda install -c conda-forge r-bigrquery
 conda activate r
 ```
    
+# Additional Materials
+
+Lots of great info including in-depth SQL training at [https://arcus.github.io/education_modules/example_pathways](https://arcus.github.io/education_modules/example_pathways#:~:text=Big%20data%2C%20big-,questions,-%3A%20Modules)!
