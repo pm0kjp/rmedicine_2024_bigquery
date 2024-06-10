@@ -1,0 +1,72 @@
+---
+title: "BigQuery Demo"
+format: html
+editor: visual
+---
+
+## Quarto
+
+```{r}
+library(bigrquery)
+library(tidyverse)
+```
+
+```{r}
+bq_auth()
+```
+
+```{r}
+project_id = "complete-rush-423917-a1"
+```
+
+```{r}
+my_sql_query <- "SELECT
+  cdc.Ave_Birth_Weight_gms,
+  adi.area_deprivation_index_percent,
+  cdc.County_of_Residence,
+  adi.county_name,
+  cdc.Year,
+  adi.year
+FROM
+  `bigquery-public-data.sdoh_cdc_wonder_natality.county_natality` AS cdc 
+  INNER JOIN `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` AS adi
+ON cdc.County_of_Residence_FIPS = adi.county_fips_code AND 
+   EXTRACT(YEAR FROM cdc.Year) = adi.year"
+
+results <- bq_project_query(project_id, my_sql_query)
+
+natality_adi <- bq_table_download(results)
+
+
+```
+# Group by and aggregate
+
+We know our data is matched on county and year, but we can't be sure we don't have duplication of the same county in different years.  Let's choose the latest year for each county.
+
+```{r}
+natality_adi_most_recent <- natality_adi %>%
+  group_by(County_of_Residence) %>%
+  filter(year_1 == max(year_1)) %>%
+  ungroup()
+```
+
+Looks like there were no county duplicates after all and that the two dataframes are identical. We can double check this using duplicated:
+
+```{r}
+table(duplicated(natality_adi$County_of_Residence))
+```
+
+# Visualize
+
+```{r}
+ggplot(natality_adi, aes(x=area_deprivation_index_percent,
+                 y = Ave_Birth_Weight_gms)) +
+  geom_point() +
+geom_smooth(method = 'lm', se = FALSE, formula = y ~ x)
+```
+
+Create a linear model
+
+```{r}
+my_model <- lm(Ave_Birth_Weight_gms ~ area_deprivation_index_percent, data = natality_adi)
+```
