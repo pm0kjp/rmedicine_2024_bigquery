@@ -91,19 +91,23 @@ Many of us love RStudio. You can spin up an RStudio server in GCP... but you don
 
 You can use your **normal** RStudio (on your computer or in Posit.cloud) to work with BigQuery.
 
+# Following Along
+
+Visit <https://github.com/pm0kjp/rmedicine_2024_bigquery/blob/main/bq_demo.qmd> and get the code, but we'll also do this together bit by bit.
+
 # Using non-GCP RStudio {.smaller}
 
 Please open whatever RStudio you typically use. <https://posit.cloud> is a good option!
 
-When you get there, open a new Quarto or R Markdown document and run `install.packages('bigrquery')` and also install tidyverse if you haven't already.
+When you get there, open a new Quarto or R Markdown document.
 
 ```{r echo = FALSE}
 library(countdown)
-countdown(minutes = 5, seconds = 00)
+countdown(minutes = 3, seconds = 00)
 ```
 
 ::: notes
-OK, so we'll be working now in RStudio. If you use RStudio from your local computer, you can open that. Or, if you prefer working in Posit.cloud, you can open that. That's what I'll be doing today. In fact, it might be useful to open a Posit.cloud account if you haven't already. Just go to posit.cloud and hit sign up. I'll give everyone a minute to fire up their RStudio.
+OK, so we'll be working now in RStudio. If you use RStudio from your local computer, you can open that. Or, if you prefer working in Posit.cloud, you can open that. That's what I'll be doing today. In fact, it might be useful to open a Posit.cloud account if you haven't already. Just go to posit.cloud and hit sign up. I'll give everyone a couple of minutes to fire up their RStudio.
 :::
 
 # bigrquery
@@ -124,13 +128,13 @@ Then you're going to start a new Quarto or R Markdown document and add a code ch
 
 I'll log in to Posit.cloud, and create a new project.  Once that is created, I'll make a new Quarto document, and change the view to source instead of visual.
 
-I'll get rid of this boilerplate and add in the installs and run that.  This may take a while!  While that's installing, let me go to authentication, and return to my slides.
+I'll get rid of this boilerplate and add in the installs and library calls and run those cells.  This may take a while!  While that's installing, let me go to authentication, and return to my slides.
 
 :::
 
 # Authenticating {.smaller}
 
-Now you need to authenticate so that RStudio can connect to BigQuery.  You'll next type 
+Now you need to authenticate so that RStudio can connect to BigQuery.  You'll next type:
 
 ```
 bq_auth()
@@ -194,8 +198,9 @@ Okay, so let me walk you through what this will be like.  I'm going to make a ne
 Then, once I have my query and my project ID set, I'm ready to use bigrquery commands to run that query, and then to retrieve the data.  Let's add that code to a new code chunk, and run it.
 
 And now, in RStudio, I have this data in my environment.  Let's take a look at that data by using View.
+:::
 
-```
+
 
 
 # Vertex AI Workbench
@@ -214,7 +219,7 @@ In the burger menu, select Vertex AI, then Workbench.  Enable the api.
 Important to shut down: <https://cloud.google.com/vertex-ai/docs/workbench/instances/shut-down>
 
 ::: notes
-You'll need to create a workbench instance.  This is going to use compute resources that cost money, so it's important to remember to shut down this instance when you're not using it. <https://cloud.google.com/vertex-ai/docs/workbench/instances/shut-down>.  Default settings include a 3 hour idle timer, which is useful!
+You'll need to create a workbench instance.  This is going to use compute resources that cost money, so it's important to remember to shut down this instance when you're not using it. <https://cloud.google.com/vertex-ai/docs/workbench/instances/shut-down>.  Default settings include a 3 hour idle timer, which is useful!  Now, I'm going to be very honest with you and disclose that I never use Jupyter for working with R, so this might be a bit cludgy.  I've cobbled together some instructions but I'm not a pro, so we might end up doing some googling here!
 :::
 
 # Setting up R kernel {.smaller}
@@ -222,10 +227,14 @@ You'll need to create a workbench instance.  This is going to use compute resour
 In a new Terminal in your Jupyter instance, enter the following:
 ```
 conda create -n r
+conda config --add channels conda-forge
+conda install -c conda-forge r-base
+conda install -c conda-forge r-essentials
+conda install -c conda-forge r-tidyverse
+conda install -c conda-forge r-stringr
+conda install -c conda-forge r-gargle
+conda install -c conda-forge r-bigrquery
 conda activate r
-conda install -c r r-essentials
-conda install -c r r-tidyverse
-conda install -c r r-bigrquery
 ```
 Answer "y" when prompted.
 

@@ -37,8 +37,8 @@ results <- bq_project_query(project_id, my_sql_query)
 
 natality_adi <- bq_table_download(results)
 
-
 ```
+
 # Group by and aggregate
 
 We know our data is matched on county and year, but we can't be sure we don't have duplication of the same county in different years.  Let's choose the latest year for each county.
