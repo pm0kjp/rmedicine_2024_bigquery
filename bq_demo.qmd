@@ -16,7 +16,7 @@ bq_auth()
 ```
 
 ```{r}
-project_id = "complete-rush-423917-a1"
+project_id = "your-project-id"
 ```
 
 ```{r}
@@ -65,8 +65,11 @@ ggplot(natality_adi, aes(x=area_deprivation_index_percent,
 geom_smooth(method = 'lm', se = FALSE, formula = y ~ x)
 ```
 
-Create a linear model
+# Model
+
+Create a linear model and view it
 
 ```{r}
 my_model <- lm(Ave_Birth_Weight_gms ~ area_deprivation_index_percent, data = natality_adi)
+summary(my_model)
 ```

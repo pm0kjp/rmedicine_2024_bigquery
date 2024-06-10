@@ -12,5 +12,40 @@
     "title": "Getting Started: R and Google BigQuery",
     "section": "Free Trial",
     "text": "Free Trial\nNow, start the free trial: a bit more complex.\n\n\n\n\n−+\n05:00\n\n\n\n\nAfter you click to agree to terms, you can activate your free trial.\nYou will have to enter a credit card number.\nGoogle will not charge you unless you decide to change your account status to a “paid” account. If you don’t add a credit card, it’s possible that you may be able to use a “sandbox” account – I’m not certain. However, it’s highly likely that you won’t be able to do everything we’re doing today in the course.\nThey’ll then ask you a few questions about how you plan to use GCP, and you can answer those however you want.\nWe’ll wait here for around 5 minutes for everyone to catch up, and I’m available in the chat for questions."
+  },
+  {
+    "objectID": "quarto_slides/deck3.html#step-1-store-or-not-credential",
+    "href": "quarto_slides/deck3.html#step-1-store-or-not-credential",
+    "title": "Getting Started: R and BigQuery",
+    "section": "Step 1: Store (or not) Credential",
+    "text": "Step 1: Store (or not) Credential"
+  },
+  {
+    "objectID": "quarto_slides/deck3.html#step-2-sign-in-with-correct-identity",
+    "href": "quarto_slides/deck3.html#step-2-sign-in-with-correct-identity",
+    "title": "Getting Started: R and BigQuery",
+    "section": "Step 2: Sign in With Correct Identity",
+    "text": "Step 2: Sign in With Correct Identity"
+  },
+  {
+    "objectID": "quarto_slides/deck3.html#step-3-give-permissions",
+    "href": "quarto_slides/deck3.html#step-3-give-permissions",
+    "title": "Getting Started: R and BigQuery",
+    "section": "Step 3: Give permissions",
+    "text": "Step 3: Give permissions"
+  },
+  {
+    "objectID": "quarto_slides/deck3.html#step-4-get-authorization-code",
+    "href": "quarto_slides/deck3.html#step-4-get-authorization-code",
+    "title": "Getting Started: R and BigQuery",
+    "section": "Step 4: Get Authorization Code",
+    "text": "Step 4: Get Authorization Code\nYou might or might not see this – you might get this code passed back automatically with a message that says\nAuthentication complete. Please close this page and return to R."
+  },
+  {
+    "objectID": "quarto_slides/deck3.html#step-5-enter-auth-code",
+    "href": "quarto_slides/deck3.html#step-5-enter-auth-code",
+    "title": "Getting Started: R and BigQuery",
+    "section": "Step 5: Enter Auth Code",
+    "text": "Step 5: Enter Auth Code"
   }
 ]

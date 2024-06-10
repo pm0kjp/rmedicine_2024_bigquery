@@ -43,13 +43,11 @@ So far, you've:
 
 ![](media/export_options.png){.bordered}
 ::: notes
-
 One way you can work with the data that you've groomed and selected from BigQuery is by exporting it to use elsewhere.  Depending on the size of the data and how often the data changes, this might be a great use case, and very convenient.  Let's go over that briefly.
 
 Now, you might think that the Export button as you're looking at a table would be a great way to get data out of GCP, but this export button is actually for exporting to other Google products, like Looker Studio or Google Cloud Storage.  If that's what you want, fantastic, but let's assume you want to take a .csv and just run with that data somewhere else.  What should you do?
 
 To export a .csv, you need to have query results, and you can save those in various formats.  So we have a couple of options.
-
 :::
 
 # Getting Query Results to Save {.smaller}
@@ -58,7 +56,21 @@ Since you've saved the query you used to create this table, you can re-run that 
 
 Or, since you've created a table that contains all the data you want, you run a "give me everything" query:
 
+```
 SELECT * FROM [table_name]
+```
+
+# Saving Data Exercise
+
+Run a query -- either your saved query or a "SELECT * FROM..." on your saved table.
+
+Then Click the Save Results button and save the .csv to your computer.
+
+
+```{r echo = FALSE}
+library(countdown)
+countdown(minutes = 3, seconds = 00)
+```
 
 
 # R vs RStudio {.smaller}
@@ -79,11 +91,16 @@ Many of us love RStudio. You can spin up an RStudio server in GCP... but you don
 
 You can use your **normal** RStudio (on your computer or in Posit.cloud) to work with BigQuery.
 
-# Using non-GCP RStudio
+# Using non-GCP RStudio {.smaller}
 
-Please open whatever RStudio you tyically use, whether that's on your computer or in Posit.cloud. I'm going to open my Posit.cloud account.
+Please open whatever RStudio you typically use. <https://posit.cloud> is a good option!
 
-You might want to create a Posit.cloud account for this identity, too, while you're at it.
+When you get there, open a new Quarto or R Markdown document and run `install.packages('bigrquery')` and also install tidyverse if you haven't already.
+
+```{r echo = FALSE}
+library(countdown)
+countdown(minutes = 5, seconds = 00)
+```
 
 ::: notes
 OK, so we'll be working now in RStudio. If you use RStudio from your local computer, you can open that. Or, if you prefer working in Posit.cloud, you can open that. That's what I'll be doing today. In fact, it might be useful to open a Posit.cloud account if you haven't already. Just go to posit.cloud and hit sign up. I'll give everyone a minute to fire up their RStudio.
@@ -91,11 +108,74 @@ OK, so we'll be working now in RStudio. If you use RStudio from your local compu
 
 # bigrquery
 
-There are several ways to connect to BigQuery but the way I'm going to show you uses a library called `bigrquery`.  I'd like you to use `install.packages` to install `bigrquery` as well as `tidyverse`, if you don't already have that installed.
+There are several ways to connect to BigQuery (see, e.g. <https://solutions.posit.co/connections/db/databases/big-query/>) but the way I'm going to show you uses a library called `bigrquery`. 
+
+Please install `bigrquery` as well as `tidyverse`, if you don't already have that installed.
 
 Then you're going to start a new Quarto or R Markdown document and add a code chunk that loads these two libraries:
 
-![](media/libraries.png)
+![](media/libraries.png){.one-half .bordered}
+
+::: notes
+
+There are several ways to connect to BigQuery (see, e.g. <https://solutions.posit.co/connections/db/databases/big-query/>) but the way I'm going to show you uses a library called `bigrquery`.  I'd like you to use `install.packages` to install `bigrquery` as well as `tidyverse`, if you don't already have that installed.
+
+Then you're going to start a new Quarto or R Markdown document and add a code chunk that loads these two libraries:
+
+:::
+
+# Authenticating {.smaller}
+
+Now you need to authenticate so that RStudio can connect to BigQuery.  You'll next type 
+
+```
+bq_auth()
+```
+
+Use the same Google Identity you're using for GCP.  If it suggests installing `httpuv`, do it, as otherwise authorization might fail.
+
+::: notes
+
+Now you need to authenticate so that RStudio can connect to BigQuery.  You'll next type bq_auth() and follow the directions.  It's important to make sure that you do the authorization using the same Google Identity you're using for GCP.  You'll be asked whether you want to store your credentials to make it easier next time, and I usually say yes.  Then, a URL will open for you, or you might be given a URL to open.  Make sure you are using the identity that you're using for GCP!  You'll be prompted to give permission to Tidyverse API, which is safe, and in the last step you'll be given a code to enter into your R console.
+
+I'll show you what this looks like in the slides here.
+:::
+
+## Step 1: Store (or not) Credential
+
+![](media/store_credentials.png){.bordered}
+
+## Step 2: Sign in With Correct Identity
+
+![](media/choose_account.png){.bordered}
+
+## Step 3: Give permissions
+
+![](media/sign_in_tidyverse.png){.bordered}![](media/grant_access.png){.bordered}
+
+## Step 4: Get Authorization Code {.smaller}
+
+You might or might not see this -- you might get this code passed back automatically with a message that says 
+
+```
+Authentication complete. Please close this page and return to R.
+```
+
+![](media/complete_auth_process.png){.bordered}
+
+## Step 5: Enter Auth Code
+
+![](media/enter_authorization_code.png){.bordered}
+
+# Run a Query from RStudio {.smaller}
+
+The pattern is: 
+
+* Set your `project_id` and `my_sql_query` objects
+* Send that query to BigQuery using `results <- bq_project_query(project_id, my_sql_query)`
+* Get the table via `df <- bq_table_download(results)`
+
+# Take a look!  
 
 # Vertex AI Workbench
 
@@ -109,9 +189,13 @@ In the burger menu, select Vertex AI, then Workbench.  Enable the api.
 # Create a Workbench Instance
 
 ![](media/create_new_instance.png){.bordered}
+
+Important to shut down: <https://cloud.google.com/vertex-ai/docs/workbench/instances/shut-down>
+
 ::: notes
-You'll need to create a workbench instance.  This is going to use compute resources that cost money, so it's important to remember to shut down this instance when you're not using it.
+You'll need to create a workbench instance.  This is going to use compute resources that cost money, so it's important to remember to shut down this instance when you're not using it. <https://cloud.google.com/vertex-ai/docs/workbench/instances/shut-down>.  Default settings include a 3 hour idle timer, which is useful!
 :::
+
 # Setting up R kernel {.smaller}
 
 In a new Terminal in your Jupyter instance, enter the following:
@@ -119,6 +203,8 @@ In a new Terminal in your Jupyter instance, enter the following:
 conda create -n r
 conda activate r
 conda install -c r r-essentials
+conda install -c r r-tidyverse
+conda install -c r r-bigrquery
 ```
 Answer "y" when prompted.
 
