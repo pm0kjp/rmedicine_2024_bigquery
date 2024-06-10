@@ -91,7 +91,11 @@ OK, so we'll be working now in RStudio. If you use RStudio from your local compu
 
 # bigrquery
 
-There are several ways to connect to BigQuery but the way I'm going to show you uses a library called `bigrquery`.
+There are several ways to connect to BigQuery but the way I'm going to show you uses a library called `bigrquery`.  I'd like you to use `install.packages` to install `bigrquery` as well as `tidyverse`, if you don't already have that installed.
+
+Then you're going to start a new Quarto or R Markdown document and add a code chunk that loads these two libraries:
+
+![](media/libraries.png)
 
 # Vertex AI Workbench
 
