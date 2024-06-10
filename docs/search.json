@@ -46,6 +46,6 @@
     "href": "quarto_slides/deck3.html#step-5-enter-auth-code",
     "title": "Getting Started: R and BigQuery",
     "section": "Step 5: Enter Auth Code",
-    "text": "Step 5: Enter Auth Code"
+    "text": "Step 5: Enter Auth Code\n ::: notes\nOK, so now you’ve seen what this looks like, I’m going to do a screen share, but I’m going to stop sharing before it shares my authentication code, so you’ll just have to imagine those last steps. :::"
   }
 ]

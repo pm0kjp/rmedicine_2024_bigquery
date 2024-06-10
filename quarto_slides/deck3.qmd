@@ -120,7 +120,11 @@ Then you're going to start a new Quarto or R Markdown document and add a code ch
 
 There are several ways to connect to BigQuery (see, e.g. <https://solutions.posit.co/connections/db/databases/big-query/>) but the way I'm going to show you uses a library called `bigrquery`.  I'd like you to use `install.packages` to install `bigrquery` as well as `tidyverse`, if you don't already have that installed.
 
-Then you're going to start a new Quarto or R Markdown document and add a code chunk that loads these two libraries:
+Then you're going to start a new Quarto or R Markdown document and add a code chunk that loads these two libraries.  I'm going to hop into screen share and go ahead and install these packages into a new Posit.cloud Quarto document.
+
+I'll log in to Posit.cloud, and create a new project.  Once that is created, I'll make a new Quarto document, and change the view to source instead of visual.
+
+I'll get rid of this boilerplate and add in the installs and run that.  This may take a while!  While that's installing, let me go to authentication, and return to my slides.
 
 :::
 
@@ -138,7 +142,7 @@ Use the same Google Identity you're using for GCP.  If it suggests installing `h
 
 Now you need to authenticate so that RStudio can connect to BigQuery.  You'll next type bq_auth() and follow the directions.  It's important to make sure that you do the authorization using the same Google Identity you're using for GCP.  You'll be asked whether you want to store your credentials to make it easier next time, and I usually say yes.  Then, a URL will open for you, or you might be given a URL to open.  Make sure you are using the identity that you're using for GCP!  You'll be prompted to give permission to Tidyverse API, which is safe, and in the last step you'll be given a code to enter into your R console.
 
-I'll show you what this looks like in the slides here.
+I'll show you what this looks like in the slides here, and just run through them very quickly, then show you what it looks like in a live coding screenshare.
 :::
 
 ## Step 1: Store (or not) Credential
@@ -166,6 +170,10 @@ Authentication complete. Please close this page and return to R.
 ## Step 5: Enter Auth Code
 
 ![](media/enter_authorization_code.png){.bordered}
+::: notes
+
+OK, so now you've seen what this looks like, I'm going to do a screen share, but I'm going to stop sharing before it shares my authentication code, so you'll just have to imagine those last steps.
+:::
 
 # Run a Query from RStudio {.smaller}
 
@@ -175,7 +183,20 @@ The pattern is:
 * Send that query to BigQuery using `results <- bq_project_query(project_id, my_sql_query)`
 * Get the table via `df <- bq_table_download(results)`
 
-# Take a look!  
+# Take a look!  {.smaller}
+
+Visit <https://github.com/pm0kjp/rmedicine_2024_bigquery/blob/main/bq_demo.qmd> and get the code, but we'll also do this together bit by bit.
+
+::: notes
+
+Okay, so let me walk you through what this will be like.  I'm going to make a new code chunk, and create two new objects, one of which will hold my project id, which I can get from my GCP project dashboard, and one of which will hold my SQL query.  Let's do that together.
+
+Then, once I have my query and my project ID set, I'm ready to use bigrquery commands to run that query, and then to retrieve the data.  Let's add that code to a new code chunk, and run it.
+
+And now, in RStudio, I have this data in my environment.  Let's take a look at that data by using View.
+
+```
+
 
 # Vertex AI Workbench
 
