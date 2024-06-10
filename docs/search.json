@@ -39,13 +39,13 @@
     "href": "quarto_slides/deck3.html#step-4-get-authorization-code",
     "title": "Getting Started: R and BigQuery",
     "section": "Step 4: Get Authorization Code",
-    "text": "Step 4: Get Authorization Code\nYou might or might not see this – you might get this code passed back automatically with a message that says\nAuthentication complete. Please close this page and return to R."
+    "text": "Step 4: Get Authorization Code\n\n\nYou might or might not see this – you might get this code passed back automatically with a message that says\nAuthentication complete. Please close this page and return to R."
   },
   {
     "objectID": "quarto_slides/deck3.html#step-5-enter-auth-code",
     "href": "quarto_slides/deck3.html#step-5-enter-auth-code",
     "title": "Getting Started: R and BigQuery",
     "section": "Step 5: Enter Auth Code",
-    "text": "Step 5: Enter Auth Code\n ::: notes\nOK, so now you’ve seen what this looks like, I’m going to do a screen share, but I’m going to stop sharing before it shares my authentication code, so you’ll just have to imagine those last steps. :::"
+    "text": "Step 5: Enter Auth Code\n\n\nOK, so now you’ve seen what this looks like, I’m going to do a screen share, but I’m going to stop sharing before it shares my authentication code, so you’ll just have to imagine those last steps."
   }
 ]

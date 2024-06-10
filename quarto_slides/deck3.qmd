@@ -48,6 +48,7 @@ One way you can work with the data that you've groomed and selected from BigQuer
 Now, you might think that the Export button as you're looking at a table would be a great way to get data out of GCP, but this export button is actually for exporting to other Google products, like Looker Studio or Google Cloud Storage.  If that's what you want, fantastic, but let's assume you want to take a .csv and just run with that data somewhere else.  What should you do?
 
 To export a .csv, you need to have query results, and you can save those in various formats.  So we have a couple of options.
+
 :::
 
 # Getting Query Results to Save {.smaller}
@@ -60,12 +61,15 @@ Or, since you've created a table that contains all the data you want, you run a 
 SELECT * FROM [table_name]
 ```
 
-# Saving Data Exercise
+# Saving Data Exercise {.smaller}
 
+::: {.columns .v-center-container}
+::: {.column width="80%"}
 Run a query -- either your saved query or a "SELECT * FROM..." on your saved table.
 
 Then Click the Save Results button and save the .csv to your computer.
-
+:::
+:::
 
 ```{r echo = FALSE}
 library(countdown)
@@ -91,15 +95,20 @@ Many of us love RStudio. You can spin up an RStudio server in GCP... but you don
 
 You can use your **normal** RStudio (on your computer or in Posit.cloud) to work with BigQuery.
 
-# Following Along
+# Following Along {.smaller}
 
 Visit <https://github.com/pm0kjp/rmedicine_2024_bigquery/blob/main/bq_demo.qmd> and get the code, but we'll also do this together bit by bit.
 
 # Using non-GCP RStudio {.smaller}
 
+::: {.columns .v-center-container}
+::: {.column width="80%"}
 Please open whatever RStudio you typically use. <https://posit.cloud> is a good option!
 
 When you get there, open a new Quarto or R Markdown document.
+
+:::
+:::
 
 ```{r echo = FALSE}
 library(countdown)
@@ -110,9 +119,11 @@ countdown(minutes = 3, seconds = 00)
 OK, so we'll be working now in RStudio. If you use RStudio from your local computer, you can open that. Or, if you prefer working in Posit.cloud, you can open that. That's what I'll be doing today. In fact, it might be useful to open a Posit.cloud account if you haven't already. Just go to posit.cloud and hit sign up. I'll give everyone a couple of minutes to fire up their RStudio.
 :::
 
-# bigrquery
+# bigrquery {.smaller}
 
 There are several ways to connect to BigQuery (see, e.g. <https://solutions.posit.co/connections/db/databases/big-query/>) but the way I'm going to show you uses a library called `bigrquery`. 
+
+# Exercise {.smaller}
 
 Please install `bigrquery` as well as `tidyverse`, if you don't already have that installed.
 
@@ -163,17 +174,23 @@ I'll show you what this looks like in the slides here, and just run through them
 
 ## Step 4: Get Authorization Code {.smaller}
 
+::: {.columns .v-center-container}
+::: {.column width="33%"}
 You might or might not see this -- you might get this code passed back automatically with a message that says 
 
 ```
 Authentication complete. Please close this page and return to R.
 ```
-
+:::
+::: {.column width="67%"}
 ![](media/complete_auth_process.png){.bordered}
+:::
+:::
 
 ## Step 5: Enter Auth Code
 
 ![](media/enter_authorization_code.png){.bordered}
+
 ::: notes
 
 OK, so now you've seen what this looks like, I'm going to do a screen share, but I'm going to stop sharing before it shares my authentication code, so you'll just have to imagine those last steps.
@@ -205,7 +222,7 @@ And now, in RStudio, I have this data in my environment.  Let's take a look at t
 
 # Vertex AI Workbench
 
-![](media/vertex_ai_workbench.png){.bordered}![](media/enable_notebooks_api.png){.bordered}
+![](media/vertex_ai_workbench.png){.bordered}![](media/enable_notebooks_api.png){.bordered .two-thirds}
 ::: note
 In the burger menu, select Vertex AI, then Workbench.  Enable the api.
 
@@ -238,11 +255,6 @@ conda activate r
 ```
 Answer "y" when prompted.
 
-Once all this is installed, issue this command:
-```
-conda activate r
-```
-Answer "y" when prompted.
 
 ::: notes
 
