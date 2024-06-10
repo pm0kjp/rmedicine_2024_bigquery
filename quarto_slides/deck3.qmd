@@ -42,7 +42,9 @@ So far, you've:
 # Let's Export! {.smaller}
 
 ![](media/export_options.png){.bordered}
+
 ::: notes
+
 One way you can work with the data that you've groomed and selected from BigQuery is by exporting it to use elsewhere.  Depending on the size of the data and how often the data changes, this might be a great use case, and very convenient.  Let's go over that briefly.
 
 Now, you might think that the Export button as you're looking at a table would be a great way to get data out of GCP, but this export button is actually for exporting to other Google products, like Looker Studio or Google Cloud Storage.  If that's what you want, fantastic, but let's assume you want to take a .csv and just run with that data somewhere else.  What should you do?
@@ -160,17 +162,17 @@ Now you need to authenticate so that RStudio can connect to BigQuery.  You'll ne
 I'll show you what this looks like in the slides here, and just run through them very quickly, then show you what it looks like in a live coding screenshare.
 :::
 
-## Step 1: Store (or not) Credential
+## Step 1: Store (or not) Credential {.smaller}
 
 ![](media/store_credentials.png){.bordered}
 
-## Step 2: Sign in With Correct Identity
+## Step 2: Sign in With Correct Identity {.smaller}
 
 ![](media/choose_account.png){.bordered}
 
-## Step 3: Give permissions
+## Step 3: Give permissions {.smaller}
 
-![](media/sign_in_tidyverse.png){.bordered}![](media/grant_access.png){.bordered}
+![](media/sign_in_tidyverse.png){.bordered .one-half}![](media/grant_access.png){.bordered .one-half}
 
 ## Step 4: Get Authorization Code {.smaller}
 
@@ -183,7 +185,7 @@ Authentication complete. Please close this page and return to R.
 ```
 :::
 ::: {.column width="67%"}
-![](media/complete_auth_process.png){.bordered}
+![](media/complete_auth_process.png){.bordered .one-half}
 :::
 :::
 
@@ -222,7 +224,7 @@ And now, in RStudio, I have this data in my environment.  Let's take a look at t
 
 # Vertex AI Workbench
 
-![](media/vertex_ai_workbench.png){.bordered}![](media/enable_notebooks_api.png){.bordered .two-thirds}
+![](media/vertex_ai_workbench.png){.bordered .one-third}![](media/enable_notebooks_api.png){.bordered .one-third}
 ::: note
 In the burger menu, select Vertex AI, then Workbench.  Enable the api.
 
