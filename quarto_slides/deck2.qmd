@@ -591,3 +591,21 @@ Building up a query is often iterative and difficult. You might want to save you
 Now look back in your Explorer and expand your project name and your dataset name and the Queries. Hopefully you see something like what's on your screen -- you have some saved assets in your project now, including a table of data and a query. If you don't see this, you might have to toggle the "Show Starred Only" button and then put a star on your project, to make sure the resources in your project show up when "starred only" is selected. 
 
 :::
+
+# Break {.smaller}
+
+::: {.columns .v-center-container}
+::: {.column width="80%"}
+Let's take a break and then come back to work in R!  
+:::
+:::
+
+```{r echo = FALSE}
+library(countdown)
+countdown(minutes = 10, seconds = 00)
+```
+
+::: notes
+Let's take a break and then come back to work in R!  How does ten minutes sound?
+:::
+

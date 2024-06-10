@@ -1,4 +1,5 @@
 # getting_started_r_bigquery
+
 A repository holding educational materials related to the R/Medicine 2024 workshop on R and BigQuery.
 
 ## Topics
@@ -16,6 +17,15 @@ In this workshop, we'll cover the following topics:
 * Services we won't use (but might be useful later!)
   * RStudio Server
   * GCS
+
+## Slides
+
+Slide shows: 
+
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck1.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck2.html>
+* <https://pm0kjp.github.io/rmedicine_2024_bigquery/quarto_slides/deck3.html>
+
 
 ## BigQuery 
 
